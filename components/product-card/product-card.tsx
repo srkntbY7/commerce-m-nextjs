@@ -6,14 +6,14 @@ const ProductCard = ({
   productTitle,
   productName,
   productPrice,
-  designer,
+  designerName,
   productId,
 }: {
   productImg: string;
   productTitle: string;
   productName: string;
   productPrice: number;
-  designer: string;
+  designerName: string;
   productId: string;
 }) => {
   const stringToSlug = (str: string): string => {
@@ -25,7 +25,7 @@ const ProductCard = ({
   };
   return (
     <Link
-      href={`/products/${stringToSlug(designer)}/${stringToSlug(
+      href={`/products/${stringToSlug(designerName)}/${stringToSlug(
         productName
       )}/${productId}`}
     >

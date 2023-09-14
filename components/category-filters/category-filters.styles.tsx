@@ -56,6 +56,7 @@ export const FilterTitle = styled.span`
   font-size: 17px;
   font-weight: bold;
   display: block;
+  text-transform: capitalize;
 `;
 export const SelectedFilter = styled.span`
   font-size: 16px;

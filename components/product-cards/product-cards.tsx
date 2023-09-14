@@ -15,9 +15,9 @@ const ProductCards = (props: { products: ICategoryProduct[] }) => {
       {products.map((product) => (
         <ProductCard
           key={product.productId}
-          designer={product.designer}
+          designerName={product.designerName}
           productName={product.productName}
-          productTitle={product.designer}
+          productTitle={product.designerName}
           productImg={`/images/${product.productId}_${product.media[0]}_2000.jpg`}
           productId={product.productId}
           productPrice={product.price}
@@ -28,7 +28,7 @@ const ProductCards = (props: { products: ICategoryProduct[] }) => {
         productTitle='visvim'
         productName='Jumbo Cotton-Jersey T-Shirt'
         productPrice={160}
-        designer='designer'
+        designerName='designer'
         productId='203822084'
       />
       <ProductCard
@@ -36,7 +36,7 @@ const ProductCards = (props: { products: ICategoryProduct[] }) => {
         productTitle='visvim'
         productName='Jumbo Cotton-Jersey T-Shirt'
         productPrice={90}
-        designer='designer'
+        designerName='designer'
         productId='203822084'
       />
       <ProductCard
@@ -44,7 +44,7 @@ const ProductCards = (props: { products: ICategoryProduct[] }) => {
         productTitle='visvim'
         productName='Jumbo Cotton-Jersey T-Shirt'
         productPrice={220}
-        designer='designer'
+        designerName='designer'
         productId='203822084'
       />
       <ProductCard
@@ -52,7 +52,7 @@ const ProductCards = (props: { products: ICategoryProduct[] }) => {
         productTitle='visvim'
         productName='Jumbo Cotton-Jersey T-Shirt'
         productPrice={180}
-        designer='designer'
+        designerName='designer'
         productId='203822084'
       />
       <ProductCard
@@ -60,7 +60,7 @@ const ProductCards = (props: { products: ICategoryProduct[] }) => {
         productTitle='visvim'
         productName='Jumbo Cotton-Jersey T-Shirt'
         productPrice={180}
-        designer='designer'
+        designerName='designer'
         productId='203822084'
       />
       <ProductCard
@@ -68,7 +68,7 @@ const ProductCards = (props: { products: ICategoryProduct[] }) => {
         productTitle='visvim'
         productName='Jumbo Cotton-Jersey T-Shirt'
         productPrice={180}
-        designer='designer'
+        designerName='designer'
         productId='203822084'
       />
       <ProductCard
@@ -76,7 +76,7 @@ const ProductCards = (props: { products: ICategoryProduct[] }) => {
         productTitle='visvim'
         productName='Jumbo Cotton-Jersey T-Shirt'
         productPrice={180}
-        designer='designer'
+        designerName='designer'
         productId='203822084'
       />
     </ProductCardsContainer>

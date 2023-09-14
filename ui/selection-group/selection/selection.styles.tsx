@@ -2,8 +2,8 @@
 import styled, { css } from 'styled-components';
 
 interface ISelection {
-  current: boolean;
-  outofstock: boolean;
+  $active: boolean;
+  $outofstock: boolean;
 }
 
 export const SelectionContainer = styled.span<ISelection>`
@@ -26,9 +26,9 @@ export const SelectionContainer = styled.span<ISelection>`
   }
 
   ${(props) =>
-    props.current ? 'border-color: #000;' : 'border: 1px solid #ccc;'};
+    props.$active ? 'border-color: #000;' : 'border: 1px solid #ccc;'};
   ${(props) =>
-    props.outofstock
+    props.$outofstock
       ? css`
           position: relative;
           background-color: #f5f5f5;

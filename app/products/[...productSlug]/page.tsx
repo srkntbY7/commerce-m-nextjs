@@ -41,9 +41,9 @@ export default async function ProductPage({
       .replace(/^-+|-+$/g, '');
   };
 
-  const productUrlSlug = `${stringToSlug(productData.designer)}/${stringToSlug(
-    productData.productName
-  )}`;
+  const productUrlSlug = `${stringToSlug(
+    productData.designerName
+  )}/${stringToSlug(productData.productName)}`;
   return (
     <PageContainer>
       <ProductCarousel media={productData.media} />

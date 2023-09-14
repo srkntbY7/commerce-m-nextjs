@@ -14,8 +14,8 @@ const Selection = ({
 }) => {
   return (
     <SelectionContainer
-      current={option.current || false}
-      outofstock={option.stock === 0 ? true : false}
+      $active={option.current === true ? true : false}
+      $outofstock={option.stock === 0 ? true : false}
     >
       {option.productId !== null && (
         <Link href={`/products/${urlSlug}/${option.productId}`}></Link>
