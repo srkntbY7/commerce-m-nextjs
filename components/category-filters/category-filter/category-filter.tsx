@@ -11,9 +11,10 @@ import {
   FilterListItem,
   FilterListItemName,
 } from './category-filter.styles';
-import ArrowVertical from '@/ui/arrow-vertical/arrow-vertical';
 
+import ArrowVertical from '@/ui/arrow-vertical/arrow-vertical';
 import FilterItem from './filter-item/filter-item';
+import FilterItemAll from './filter-item-all/filter-item-all';
 
 const CategoryFilter = (props: {
   filters: Record<string, any>[];
@@ -42,16 +43,12 @@ const CategoryFilter = (props: {
     setOpen(!open);
   };
 
-  //console.log('pathname', new URLSearchParams(searchParams).has('sc', '1.1.6'));
-
-  //http://localhost:3000/categories/clothing/t-shirts?sc=1.1.2&sc=1.1.3&designer=6502b778b420863628092756&color=black&color=neutrals&size=xs&size=m&size=5
-
   return (
     <FilterContainer>
       <FilterHeading onClick={toggleOpen}>
         <FilterTitle>{catTitle}</FilterTitle>
         <SelectedFilter>
-          {Array.isArray(selectedCat)
+          {Array.isArray(selectedCat) && selectedCat.length > 0
             ? filters
                 .map((filter) =>
                   selectedCat.filter((cat) => cat === filter[catKey]).length > 0
@@ -65,10 +62,10 @@ const CategoryFilter = (props: {
         <ArrowVertical type='right' open={open} />
       </FilterHeading>
       <FilterList open={open}>
-        <FilterListItem selected={selectedCat === null}>
-          <Link href={`/categories/${catTitle}`}>
-            <FilterListItemName>All</FilterListItemName>
-          </Link>
+        <FilterListItem
+          selected={Array.isArray(selectedCat) && selectedCat.length === 0}
+        >
+          <FilterItemAll mainCat={mainCat} catType={catType} />
         </FilterListItem>
         {filters.map((filter) => (
           <FilterListItem

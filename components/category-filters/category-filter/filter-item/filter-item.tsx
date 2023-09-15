@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useCallback } from 'react';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 import { FilterListItemName } from './filter-item.styles';
 
@@ -42,7 +42,7 @@ const FilterItem = (props: {
 
   if (catType === 'main') {
     return (
-      <Link href={`/${mainCat}/${catName}`}>
+      <Link href={`/categories/${mainCat}/${catName}`}>
         <FilterListItemName>{catName}</FilterListItemName>
       </Link>
     );
