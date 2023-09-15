@@ -1,17 +1,5 @@
 'use client';
-import { useState } from 'react';
-import {
-  FiltersContainer,
-  FilterContainer,
-  FilterHeading,
-  FilterTitle,
-  SelectedFilter,
-  FilterList,
-  FilterListItem,
-  FilterListItemName,
-} from './category-filters.styles';
-import ArrowVertical from '@/ui/arrow-vertical/arrow-vertical';
-import Link from 'next/link';
+import { FiltersContainer } from './category-filters.styles';
 
 interface ICategoryFilters {
   catId: string;
@@ -38,29 +26,47 @@ interface ISizes {
 
 import CategoryFilter from './category-filter/category-filter';
 
+import { useSearchParams } from 'next/navigation';
+
 const Filters = (props: {
-  categoryName: string[];
-  mainCatFilters: ICategoryFilters[];
-  subCatFilters: ICategoryFilters[] | null;
+  mainCategoryName: string;
+  subCategoryName: string | null;
+  mainCatFilters: ICategoryFilters[]; //clothing, accessories etc.
+  subCatFilters: ICategoryFilters[] | null; //t-shirts, jeans etc.
   designerFilters: IDesignerFilters[];
   colorFilters: IColorFilters[];
   sizeFilters: ISizeFilters[];
 }) => {
   const {
-    categoryName,
+    mainCategoryName,
+    subCategoryName,
     mainCatFilters,
     subCatFilters,
     designerFilters,
     colorFilters,
     sizeFilters,
   } = props;
+
   console.log('sizeFilters', sizeFilters);
-  const [open, setOpen] = useState(false);
 
-  const toggleOpen = () => {
-    setOpen(!open);
-  };
+  const searchParams = useSearchParams();
 
+  const searchParamSubCategory = searchParams.getAll('sc');
+  const searchParamsDesigner = searchParams.getAll('designer');
+  const searchParamsColor = searchParams.getAll('color');
+  const searchParamsSizes = searchParams.getAll('size');
+
+  let seledtedPrimaryCatId = null;
+  if (Array.isArray(subCatFilters)) {
+    const seledtedPrimaryCat = mainCatFilters.filter(
+      (subCat) => subCat.catName === subCategoryName
+    );
+    if (seledtedPrimaryCat) {
+      seledtedPrimaryCatId = seledtedPrimaryCat[0].catId;
+    }
+  }
+
+  //console.log('current', current);
   return (
     <FiltersContainer>
       <CategoryFilter
@@ -68,17 +74,25 @@ const Filters = (props: {
         catTitle='Category'
         catKey='catId'
         catName='catName'
-        urlCat={categoryName}
+        mainCat={mainCategoryName}
+        subCat={subCategoryName}
         catType='main'
+        selectedCat={
+          typeof seledtedPrimaryCatId === 'string'
+            ? [seledtedPrimaryCatId]
+            : null
+        }
       />
-      {subCatFilters && (
+      {subCatFilters && typeof subCategoryName === 'string' && (
         <CategoryFilter
           filters={subCatFilters}
-          catTitle='Sub Category'
+          catTitle={subCategoryName}
           catKey='catId'
           catName='catName'
-          urlCat={categoryName}
+          mainCat={mainCategoryName}
+          subCat={subCategoryName}
           catType='sub'
+          selectedCat={searchParamSubCategory}
         />
       )}
 
@@ -87,8 +101,10 @@ const Filters = (props: {
         catTitle='Designer'
         catKey='designerId'
         catName='designerName'
-        urlCat={categoryName}
+        mainCat={mainCategoryName}
+        subCat={subCategoryName}
         catType='designer'
+        selectedCat={searchParamsDesigner}
       />
 
       <CategoryFilter
@@ -96,8 +112,10 @@ const Filters = (props: {
         catTitle='Color'
         catKey='colorName'
         catName='colorName'
-        urlCat={categoryName}
+        mainCat={mainCategoryName}
+        subCat={subCategoryName}
         catType='color'
+        selectedCat={searchParamsColor}
       />
 
       {sizeFilters.map((sizeFilter) => (
@@ -105,10 +123,12 @@ const Filters = (props: {
           key={sizeFilter.sizeGroup}
           filters={sizeFilter.sizes[0]}
           catTitle={`${sizeFilter.sizeGroup} Size`}
-          catKey='order'
+          catKey='size'
           catName='size'
-          urlCat={categoryName}
+          mainCat={mainCategoryName}
+          subCat={subCategoryName}
           catType='size'
+          selectedCat={searchParamsSizes}
         />
       ))}
     </FiltersContainer>

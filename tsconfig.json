@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/[categoryId]",
-    "app/api/category/[categoryName]",
+    "app/api/category/[mainCategoryName]",
     "app/api/product/[productId]/route.js"
   ],
   "exclude": ["node_modules"]

@@ -2,8 +2,7 @@ import { NextResponse } from 'next/server';
 import { connectDB, getCategoryId, getCategoryProducts } from '@/utils/db-util';
 
 export async function GET(request, { params }) {
-  const { categoryName } = params;
-
+  const { subCategoryName } = params;
   let client, catId;
   try {
     client = await connectDB();
@@ -17,7 +16,7 @@ export async function GET(request, { params }) {
   }
 
   try {
-    const catName = categoryName;
+    const catName = subCategoryName;
     const category = await getCategoryId(client, 'categories', catName);
     catId = category.catId;
   } catch (err) {

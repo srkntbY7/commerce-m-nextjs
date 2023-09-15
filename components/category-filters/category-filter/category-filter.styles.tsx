@@ -61,6 +61,7 @@ export const SelectedFilter = styled.span`
   color: #666;
   display: block;
   margin-top: 6px;
+  text-transform: capitalize;
 `;
 
 export const FilterList = styled.ul<IFilterAccordion>`
