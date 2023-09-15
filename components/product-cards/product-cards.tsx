@@ -1,4 +1,3 @@
-import SelectedFilters from '@/ui/selected-filters/selected-filters';
 import ProductCard from '../product-card/product-card';
 
 import { ProductCardsContainer } from './product-cards.styles';
@@ -11,7 +10,6 @@ const ProductCards = (props: { products: ICategoryProduct[] }) => {
 
   return (
     <ProductCardsContainer>
-      <SelectedFilters />
       {products.map((product) => (
         <ProductCard
           key={product.productId}

@@ -7,3 +7,7 @@ export const CategoryProductsContainer = styled.section`
   grid-template-columns: minmax(20vw, 300px) 1fr;
   grid-column-gap: 30px;
 `;
+
+export const CategoryProductArea = styled.section`
+  display: grid;
+`;

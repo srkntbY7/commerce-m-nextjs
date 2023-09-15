@@ -23,7 +23,7 @@ const ProductDescription = ({
     content: string[];
   }[];
 }) => {
-  const [descriptionIsopen, setDescriptionIsopen] = useState(open);
+  const [descriptionIsopen, setDescriptionIsopen] = useState<boolean>(open);
 
   const toggleDescriptionOpen = () => {
     setDescriptionIsopen(!descriptionIsopen);

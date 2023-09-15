@@ -1,6 +1,10 @@
+import SelectedFilters from '@/ui/selected-filters/selected-filters';
 import Filters from '../category-filters/category-filters';
 import ProductCards from '../product-cards/product-cards';
-import { CategoryProductsContainer } from './category-products.styles';
+import {
+  CategoryProductsContainer,
+  CategoryProductArea,
+} from './category-products.styles';
 
 const CategoryProducts = async (props: {
   mainCategoryName: string;
@@ -46,7 +50,10 @@ const CategoryProducts = async (props: {
         colorFilters={filters.filters[3].colorFilters[0].colors}
         sizeFilters={filters.filters[4].sizeFilters}
       />
-      <ProductCards products={categoryProducts.catProducts} />
+      <CategoryProductArea>
+        <SelectedFilters />
+        <ProductCards products={categoryProducts.catProducts} />
+      </CategoryProductArea>
     </CategoryProductsContainer>
   );
 };
