@@ -8,10 +8,6 @@ interface IFilterLink {
   selected?: boolean;
 }
 
-export const FiltersContainer = styled.div`
-  display: block;
-`;
-
 export const FilterContainer = styled.div`
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;

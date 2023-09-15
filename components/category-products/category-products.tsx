@@ -35,6 +35,7 @@ const CategoryProducts = async (props: { categoryName: string[] }) => {
   return (
     <CategoryProductsContainer>
       <Filters
+        categoryName={categoryName}
         mainCatFilters={filters.filters[0].mainCategoryFilters}
         subCatFilters={filters.filters[1].subCategoryFilters}
         designerFilters={filters.filters[2].designerFilters[0].designers}
