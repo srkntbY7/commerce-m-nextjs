@@ -1,6 +1,16 @@
 'use client';
 import styled from 'styled-components';
 
+export const LinkContainer = styled.div`
+  flex: 48%;
+  margin-bottom: 40px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+`;
+
 export const ProductImg = styled.img`
   width: 100%;
   height: auto;
@@ -20,6 +30,6 @@ export const ProductName = styled.span`
 `;
 
 export const ProductPrice = styled.span`
-  margin-top: 28px;
+  margin-top: 12px;
   display: block;
 `;

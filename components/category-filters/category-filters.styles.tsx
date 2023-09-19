@@ -9,7 +9,10 @@ interface IFilterLink {
 }
 
 export const FiltersContainer = styled.div`
-  display: block;
+  @media (min-width: 1580px) {
+    display: block;
+  }
+  display: none;
 `;
 
 export const FilterContainer = styled.div`

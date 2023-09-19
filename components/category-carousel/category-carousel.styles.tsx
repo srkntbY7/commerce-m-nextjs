@@ -5,6 +5,7 @@ export const CategoryCarouselContainer = styled.section`
   margin-bottom: 20px;
   display: flex;
   gap: 20px;
+  overflow: hidden;
 `;
 
 export const CategoryCarouselItem = styled.div`

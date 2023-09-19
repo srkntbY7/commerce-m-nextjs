@@ -2,11 +2,16 @@
 import styled from 'styled-components';
 
 export const ProductHeaderContainer = styled.section`
-  grid-column: product-info-start / product-info-end;
-  //grid-column: 2 / -1;
-  //grid-row-start: 1;
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 30px;
+  order: -1;
+  @media (min-width: 1024px) {
+    order: 1;
+  }
+  @media (min-width: 1024px) {
+    grid-column: product-info-start / product-info-end;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 export const ProductHeadingDesigner = styled.h1`
   font-size: 24px;
