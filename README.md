@@ -15,7 +15,8 @@ Next Steps:
 - using Redux for cart items
 - acivating pagination for category pages
 - creating static pages
-- additional unit & e2e testing
+- improving data fetching strategy 
+- additional unit (jest) & e2e testing (cypress)
 - deployment
 
 Thank you.
