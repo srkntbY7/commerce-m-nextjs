@@ -43,7 +43,7 @@ interface IDescription {
   desc_open: boolean;
   _id: string;
   desc_text: {
-    contenttype: string;
+    contenttype: 'paragraph' | 'list';
     content: string[];
     _id: string;
   }[];

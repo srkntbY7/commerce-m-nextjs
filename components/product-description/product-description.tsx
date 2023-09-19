@@ -1,5 +1,7 @@
 'use client';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
+
+import { IProductDescription } from './IProductDescription';
 
 import {
   ProductDescriptionContainer,
@@ -8,43 +10,13 @@ import {
 } from './product-description.styles';
 import ArrowVertical from '@/ui/arrow-vertical/arrow-vertical';
 
-const ProductDescription = ({
-  id,
-  title,
-  open = false,
-  textcontent: [{ _id, contenttype, content }],
-}: {
-  id: string;
-  title: string;
-  open: boolean;
-  textcontent: {
-    _id: string;
-    contenttype: string;
-    content: string[];
-  }[];
-}) => {
+const ProductDescription = (props: IProductDescription) => {
+  const { id, title, open, textcontent } = props;
+
   const [descriptionIsopen, setDescriptionIsopen] = useState<boolean>(open);
 
   const toggleDescriptionOpen = () => {
     setDescriptionIsopen(!descriptionIsopen);
-  };
-
-  const createdescriptionContent = () => {
-    if (Array.isArray(content) && content.length > 0) {
-      if (contenttype === 'paragraph') {
-        return content.map((item, ind) => <p key={ind}>{item}</p>);
-      }
-      if (contenttype === 'list') {
-        return (
-          <ul>
-            {content.map((item, ind) => (
-              <li key={ind}>{item}</li>
-            ))}
-          </ul>
-        );
-      }
-      return null;
-    }
   };
 
   return (
@@ -54,7 +26,25 @@ const ProductDescription = ({
         <ArrowVertical type='right' open={descriptionIsopen} />
       </ProductDescriptionTitle>
       <ProductDescriptionText open={descriptionIsopen}>
-        {createdescriptionContent()}
+        {textcontent.map((cntnt) => {
+          if (Array.isArray(cntnt.content) && cntnt.content.length > 0) {
+            if (cntnt.contenttype === 'paragraph') {
+              return cntnt.content.map((item, ind) => (
+                <p key={item + ind}>{item}</p>
+              ));
+            }
+            if (cntnt.contenttype === 'list') {
+              return (
+                <ul key={cntnt._id}>
+                  {cntnt.content.map((item, ind) => (
+                    <li key={item + ind}>{item}</li>
+                  ))}
+                </ul>
+              );
+            }
+            return null;
+          }
+        })}
       </ProductDescriptionText>
     </ProductDescriptionContainer>
   );

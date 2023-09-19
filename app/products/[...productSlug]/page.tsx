@@ -49,7 +49,7 @@ export default async function ProductPage({
       <ProductCarousel media={productData.media} />
       <ProductHeader
         productName={productData.productName}
-        designer={productData.designer}
+        designer={productData.designerName}
         price={productData.price}
         error={null}
       />

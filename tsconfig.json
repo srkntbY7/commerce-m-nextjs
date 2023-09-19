@@ -29,7 +29,8 @@
     ".next/types/**/*.ts",
     "app/[categoryId]",
     "app/api/category/[mainCategoryName]",
-    "app/api/product/[productId]/route.js"
+    "app/api/product/[productId]/route.js",
+    "./jest-setup.ts"
   ],
   "exclude": ["node_modules"]
 }
