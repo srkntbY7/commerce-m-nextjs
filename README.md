@@ -1,4 +1,4 @@
-## NextJs Api Router Portfolio Project
+## NextJs App Router Portfolio Project
 
 Technologies & Tools:
 - NextJs
