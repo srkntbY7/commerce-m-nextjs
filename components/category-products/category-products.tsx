@@ -39,6 +39,16 @@ const CategoryProducts = async (props: {
 
   console.log('categoryProducts', categoryProducts);
   console.log('allFilters', filters);
+
+  let designers = [],
+    colorFilters = [];
+  if (filters.filters[2].designerFilters.length) {
+    designers = filters.filters[2].designerFilters[0].designers;
+  }
+  if (filters.filters[3].colorFilters.length) {
+    colorFilters = filters.filters[3].colorFilters[0].colors;
+  }
+
   return (
     <CategoryProductsContainer>
       <Filters
@@ -46,8 +56,8 @@ const CategoryProducts = async (props: {
         subCategoryName={subCategoryName}
         mainCatFilters={filters.filters[0].mainCategoryFilters}
         subCatFilters={filters.filters[1].subCategoryFilters}
-        designerFilters={filters.filters[2].designerFilters[0].designers}
-        colorFilters={filters.filters[3].colorFilters[0].colors}
+        designerFilters={designers}
+        colorFilters={colorFilters}
         sizeFilters={filters.filters[4].sizeFilters}
       />
       <CategoryProductArea>

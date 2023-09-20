@@ -4,6 +4,7 @@ import ProductHeader from '@/components/product-header/product-header';
 import ProductInformation from '@/components/product-information/product-information';
 
 type productData = {
+  productId: string;
   productName: string;
   designerName: string;
   price: number;
@@ -93,7 +94,11 @@ export default async function ProductPage({
   )}`;
   return (
     <PageContainer>
-      <ProductCarousel media={product.media} />
+      <ProductCarousel
+        productId={product.productId}
+        productName={product.productName}
+        media={product.media}
+      />
       <ProductHeader
         productName={product.productName}
         designer={product.designerName}

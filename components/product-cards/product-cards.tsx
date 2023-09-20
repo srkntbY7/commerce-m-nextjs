@@ -21,62 +21,6 @@ const ProductCards = (props: { products: ICategoryProduct[] }) => {
           productPrice={product.price}
         />
       ))}
-      <ProductCard
-        productImg='/images/203822084_in_2000.jpg'
-        productTitle='visvim'
-        productName='Jumbo Cotton-Jersey T-Shirt'
-        productPrice={160}
-        designerName='designer'
-        productId='203822084'
-      />
-      <ProductCard
-        productImg='/images/product-002.jpg'
-        productTitle='visvim'
-        productName='Jumbo Cotton-Jersey T-Shirt'
-        productPrice={90}
-        designerName='designer'
-        productId='203822084'
-      />
-      <ProductCard
-        productImg='/images/product-003.jpg'
-        productTitle='visvim'
-        productName='Jumbo Cotton-Jersey T-Shirt'
-        productPrice={220}
-        designerName='designer'
-        productId='203822084'
-      />
-      <ProductCard
-        productImg='/images/product-004.jpg'
-        productTitle='visvim'
-        productName='Jumbo Cotton-Jersey T-Shirt'
-        productPrice={180}
-        designerName='designer'
-        productId='203822084'
-      />
-      <ProductCard
-        productImg='/images/product-001.jpg'
-        productTitle='visvim'
-        productName='Jumbo Cotton-Jersey T-Shirt'
-        productPrice={180}
-        designerName='designer'
-        productId='203822084'
-      />
-      <ProductCard
-        productImg='/images/product-002.jpg'
-        productTitle='visvim'
-        productName='Jumbo Cotton-Jersey T-Shirt'
-        productPrice={180}
-        designerName='designer'
-        productId='203822084'
-      />
-      <ProductCard
-        productImg='/images/product-003.jpg'
-        productTitle='visvim'
-        productName='Jumbo Cotton-Jersey T-Shirt'
-        productPrice={180}
-        designerName='designer'
-        productId='203822084'
-      />
     </ProductCardsContainer>
   );
 };
