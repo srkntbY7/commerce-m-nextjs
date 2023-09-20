@@ -7,7 +7,7 @@ Technologies & Tools:
 - Styled Components
 - MongoDB
 
-Status: on-going
+Status: on-going (updated daily)
  
 I've developed this project with inspiration from a well-known e-commerce platform. The purpose of this project is to showcase my current skill set and is an ongoing effort to enrich its features and bring it closer to the real-world applications.
 
