@@ -13,7 +13,7 @@ export async function getCategoryId(
   collection: string,
   categoryName: string
 ) {
-  console.log('categoryName', categoryName);
+  //console.log('categoryName', categoryName);
   const db = client.db();
   const category = db.collection(collection).findOne({ catName: categoryName });
 
@@ -65,6 +65,19 @@ export async function getCategoryProducts(
     .toArray();
 
   return catProducts;
+}
+
+export async function getCategoryTextContent(
+  client: MongoClient,
+  categoryId: string
+) {
+  const db = client.db();
+  const catContent = db.collection('category_content');
+  const result = await catContent.findOne({ catId: categoryId });
+  if (!result) {
+    return { categortContent: {} };
+  }
+  return result;
 }
 
 export async function getProductData(
@@ -159,7 +172,7 @@ export async function getCategoryFilters(
     subCatHandle = '';
 
   const catDeepness = categoryId.split('.').length - 1;
-  console.log('catDeepness', categoryId);
+  //console.log('catDeepness', categoryId);
 
   mainCatHandle = categoryId.split('.')[0];
   const regexMainCat = `^${mainCatHandle}[^.]*\.[^.]*$`;

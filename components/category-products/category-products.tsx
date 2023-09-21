@@ -37,8 +37,8 @@ const CategoryProducts = async (props: {
   const categoryProducts = await getCatProducts();
   const filters = await getFilters();
 
-  console.log('categoryProducts', categoryProducts);
-  console.log('allFilters', filters);
+  //console.log('categoryProducts', categoryProducts);
+  //console.log('allFilters', filters);
 
   let designers = [],
     colorFilters = [];

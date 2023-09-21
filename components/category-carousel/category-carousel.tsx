@@ -4,55 +4,34 @@ import {
   CategoryCarouselItem,
   CarouselLabel,
 } from './category-carousel.styles';
+import Link from 'next/link';
 
-const CategoryCarousel = () => {
+interface CategoryCarouselProps {
+  link: string;
+  caption: string;
+  image: string;
+}
+
+const CategoryCarousel = (props: { catMedia: CategoryCarouselProps[] }) => {
+  const { catMedia } = props;
+
   return (
     <CategoryCarouselContainer>
-      <CategoryCarouselItem>
-        <Image
-          src='/images/product-001.jpg'
-          alt='category image'
-          width={288}
-          height={360}
-        />
-        <CarouselLabel>Sub Category - 1</CarouselLabel>
-      </CategoryCarouselItem>
-      <CategoryCarouselItem>
-        <Image
-          src='/images/product-002.jpg'
-          alt='category image'
-          width={288}
-          height={360}
-        />
-        <CarouselLabel>Sub Category - 2</CarouselLabel>
-      </CategoryCarouselItem>
-      <CategoryCarouselItem>
-        <Image
-          src='/images/product-003.jpg'
-          alt='category image'
-          width={288}
-          height={360}
-        />
-        <CarouselLabel>Sub Category - 3</CarouselLabel>
-      </CategoryCarouselItem>
-      <CategoryCarouselItem>
-        <Image
-          src='/images/product-004.jpg'
-          alt='category image'
-          width={288}
-          height={360}
-        />
-        <CarouselLabel>Sub Category - 4</CarouselLabel>
-      </CategoryCarouselItem>
-      <CategoryCarouselItem>
-        <Image
-          src='/images/product-005.jpg'
-          alt='category image'
-          width={288}
-          height={360}
-        />
-        <CarouselLabel>Sub Category - 5</CarouselLabel>
-      </CategoryCarouselItem>
+      {Array.isArray(catMedia) &&
+        catMedia.length > 0 &&
+        catMedia.map((md) => (
+          <CategoryCarouselItem>
+            <Link href={md.link}>
+              <Image
+                src={`/images/${md.image}`}
+                alt={md.caption}
+                width={288}
+                height={360}
+              />
+              <CarouselLabel>{md.caption}</CarouselLabel>
+            </Link>
+          </CategoryCarouselItem>
+        ))}
     </CategoryCarouselContainer>
   );
 };

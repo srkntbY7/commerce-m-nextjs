@@ -4,17 +4,19 @@ import {
   CategoryTextContent,
 } from './category-header.styles';
 
-const CategoryHeader = () => {
+const CategoryHeader = async (props: {
+  mainCategoryName: string;
+  subCategoryName: string | null;
+  catContent: string | null;
+}) => {
+  const { mainCategoryName, subCategoryName, catContent } = props;
+
   return (
     <CategoryHeaderContainer>
-      <CategoryHeading>Clothing</CategoryHeading>
-      <CategoryTextContent>
-        Category Text Build your new-season wardrobe with the latest designer
-        coats & jackets, knitwear, sweats and smart tailoring, with everyday
-        essentials such as T-shirts, casual shirts, trousers and denim jeans.
-        Don’t forget to check out our shoe selection, too, where you’ll find
-        loafers, boots, sneakers and more.
-      </CategoryTextContent>
+      <CategoryHeading>
+        {subCategoryName ? subCategoryName : mainCategoryName}
+      </CategoryHeading>
+      <CategoryTextContent>{catContent}</CategoryTextContent>
     </CategoryHeaderContainer>
   );
 };

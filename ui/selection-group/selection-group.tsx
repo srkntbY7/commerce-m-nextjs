@@ -23,6 +23,7 @@ const SelectionGroup = ({
   urlSlug?: string;
 }) => {
   const currentOption = options.find((option) => option.current === true);
+  //console.log('name', name);
   return (
     <SelectGroup>
       <SelectionTitle>
@@ -30,7 +31,7 @@ const SelectionGroup = ({
       </SelectionTitle>
       <Selections>
         {options.map((option, index) => (
-          <Selection key={index} option={option} />
+          <Selection name={name} key={index} option={option} />
         ))}
       </Selections>
     </SelectGroup>

@@ -10,10 +10,29 @@ export default async function MainCategoryPage({
 }) {
   const mainCategoryName = params.mainCategory;
 
+  const apiUrl = mainCategoryName;
+
+  async function getCatContent() {
+    const res = await fetch(
+      `http://localhost:3000/api/category/textcontent/${apiUrl}`
+    );
+    if (!res.ok) {
+      throw new Error('Failed to fetch data');
+    }
+
+    return res.json();
+  }
+
+  const categoryTextContent = await getCatContent();
+
   return (
     <>
-      <CategoryHeader />
-      <CategoryCarousel />
+      <CategoryHeader
+        mainCategoryName={mainCategoryName}
+        subCategoryName={null}
+        catContent={categoryTextContent.catContent.catText}
+      />
+      <CategoryCarousel catMedia={categoryTextContent.catContent.catMedia} />
       <CategoryProducts
         mainCategoryName={mainCategoryName}
         subCategoryName={null}

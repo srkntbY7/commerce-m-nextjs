@@ -63,7 +63,7 @@ const ProductInformation = (props: {
   urlSlug?: string;
 }) => {
   const { stock, descriptions, color, moreColors, urlSlug } = props;
-  console.log('moreColors', moreColors);
+  //console.log('moreColors', moreColors);
 
   return (
     <ProductInformationContainer>

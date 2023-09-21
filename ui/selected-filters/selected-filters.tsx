@@ -10,8 +10,8 @@ const SelectedFilters = () => {
   const searchParamsColor = searchParams.getAll('color');
   const searchParamsSizes = searchParams.getAll('size');
 
-  console.log('pathname', pathname);
-  console.log('searchParamSubCategory', searchParamSubCategory);
+  //console.log('pathname', pathname);
+  //console.log('searchParamSubCategory', searchParamSubCategory);
 
   return <SelectedFiltersContainer>Selected Filters</SelectedFiltersContainer>;
 };

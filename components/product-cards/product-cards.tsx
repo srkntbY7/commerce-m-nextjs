@@ -6,7 +6,7 @@ import { ICategoryProduct } from '@/components/product-cards/IProducts';
 const ProductCards = (props: { products: ICategoryProduct[] }) => {
   const { products } = props;
 
-  console.log('productsinPrCards', products);
+  //console.log('productsinPrCards', products);
 
   return (
     <ProductCardsContainer>

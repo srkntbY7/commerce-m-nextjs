@@ -16,6 +16,7 @@ export const SelectionContainer = styled.span<ISelection>`
   cursor: pointer;
   text-transform: uppercase;
   position: relative;
+  font-size: 16px;
 
   a {
     position: absolute;
@@ -53,4 +54,16 @@ export const SelectionContainer = styled.span<ISelection>`
           }
         `
       : ``}
+`;
+
+export const SelectionButton = styled.button`
+  background: transparent;
+  border: none;
+  text-transform: uppercase;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 `;

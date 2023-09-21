@@ -11,6 +11,7 @@ export const ArrowContainerRight = styled.div`
   border-radius: 50%;
   cursor: pointer;
   right: 10px;
+  z-index: 10;
 
   &:before,
   &:after {
